@@ -25,7 +25,7 @@ driver= webdriver.Chrome(executable_path=r"C:\Program Files (x86)\chromedriver_w
 print("browser start")
 
 # Meeting link goes here
-driver.get('https://meet.jit.si/NeighbouringSinglesTerminateConstantly')
+driver.get('https://meet.jit.si/EmptyControlsMapAccidentally')
 time.sleep(5)
 
 # Joining meet
@@ -35,5 +35,5 @@ joinNow(driver)
 driver.implicitly_wait(10)
 
 # Accessing chat
-time.sleep(5)
+time.sleep(30)
 commands(driver)
