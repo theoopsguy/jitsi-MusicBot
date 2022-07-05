@@ -43,7 +43,16 @@ def commands(driver):
         # For now not reading messages in group by the same person. Can implement later.
 
         #Removing author details
-        postRemovingAuthor=chatText.split("\n",1)[1].lower()
-        print(postRemovingAuthor)
-        i=i+1
-        
+        actualChatText=str(chatText).split("\n",1)[1]
+        actualChatText=str(actualChatText).lower()
+
+        if "/playsong" in actualChatText:
+            print("Play Song")
+            i=i+1
+        elif "/exit" in actualChatText:
+            run=0
+            print("Exit bot")
+            driver.close()
+        else:
+            print(actualChatText)
+            i=i+1
