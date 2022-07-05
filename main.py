@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import time
 
-from joinMeet import turnMicCamOff,joinNow
+from joinMeet import turnMicCamOff, joinNow
 from commands import commands
 
 # Handling permission popups and browser window props

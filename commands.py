@@ -4,6 +4,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from playSong import playSong
+
 def commands(driver):
     driver=driver
     # Open chat box
@@ -18,7 +20,7 @@ def commands(driver):
     driver.implicitly_wait(3)
     print("Introduced in chat")
 
-    # for msgs in grp
+    # for msgs in grp, xpaths are as follows:
     # h12
     # //*[@id="chatconversation"]/div[1]/div[1]/div/div/div/div[2] 1
     # //*[@id="chatconversation"]/div[1]/div[2]/div[1]/div/div/div 2
@@ -46,8 +48,11 @@ def commands(driver):
         actualChatText=str(chatText).split("\n",1)[1]
         actualChatText=str(actualChatText).lower()
 
-        if "/playsong" in actualChatText:
+        if "/play" in actualChatText:
             print("Play Song")
+            songNameStartIdx=actualChatText.find("/play")+6
+            songName=actualChatText[songNameStartIdx:]
+            playSong(driver, songName)
             i=i+1
         elif "/exit" in actualChatText:
             run=0
