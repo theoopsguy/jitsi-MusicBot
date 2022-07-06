@@ -15,3 +15,9 @@ def playSong(driver, songName):
     # Handle ads, need to skip ad if ad is shown or can let it play
 
     driver.switch_to.window(originalMeetWindow)
+    time.sleep(1)
+
+    # Sharing audio in meet
+    driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[2]/div/div[3]/div/div/div/div[3]').click()
+
+    
