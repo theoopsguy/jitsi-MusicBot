@@ -12,12 +12,13 @@ opt.add_argument("--disable-infobars")
 # opt.add_argument("--mute-audio")
 opt.add_argument("start-maximized")
 opt.add_argument("enable-usermedia-screen-capturing")
+opt.add_argument("auto-select-desktop-capture-source=YouTube Music")    #Auto select which screen to share, for now YTM
 opt.add_experimental_option('excludeSwitches', ['test-type'])
 opt.add_experimental_option("prefs", {
     "profile.default_content_setting_values.media_stream_mic": 1,
     "profile.default_content_setting_values.media_stream_camera": 1,
     "profile.default_content_setting_values.geolocation": 1,
-    "profile.default_content_setting_values.notifications": 1
+    "profile.default_content_setting_values.notifications": 1,
 })
 
 # Starting browser
