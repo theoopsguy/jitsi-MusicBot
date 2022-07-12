@@ -36,5 +36,5 @@ joinNow(driver)
 driver.implicitly_wait(10)
 
 # Accessing chat
-time.sleep(30)
+time.sleep(20)
 commands(driver)
