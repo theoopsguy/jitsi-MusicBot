@@ -18,4 +18,4 @@ def playSong(driver, songName):
     time.sleep(1)
 
     # Sharing audio in meet
-    driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[2]/div/div[3]/div/div/div/div[3]').click()
+    # driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[2]/div/div[3]/div/div/div/div[3]').click()
