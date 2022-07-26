@@ -4,13 +4,16 @@ from selenium.webdriver.common.by import By
 # Turn off audio and video
 def turnMicCamOff(driver):
     driver=driver
-    driver.find_element(By.XPATH, '//*[@id="new-toolbox"]/div/div/div/div[1]/div/div[1]/div/div/div').click()
-    print("Mic off")
-    driver.implicitly_wait(3000)
-    time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="new-toolbox"]/div/div/div/div[2]/div/div[1]/div/div/div').click()
     print("Cam off")
     driver.implicitly_wait(3000)
+
+    #Instead of muting audio need to change audio input device to cable input
+    
+    # driver.find_element(By.XPATH, '//*[@id="new-toolbox"]/div/div/div/div[1]/div/div[1]/div/div/div').click()
+    # print("Mic off")
+    # driver.implicitly_wait(3000)
+    time.sleep(1)
 
 
 # Joining meet
