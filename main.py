@@ -9,7 +9,6 @@ from commands import commands
 # Handling permission popups and browser window props
 opt = Options()
 opt.add_argument("--disable-infobars")
-# opt.add_argument("--mute-audio")
 opt.add_argument("start-maximized")
 opt.add_argument("enable-usermedia-screen-capturing")
 opt.add_argument("auto-select-desktop-capture-source=YouTube Music")    #Auto select which screen to share, for now YTM
