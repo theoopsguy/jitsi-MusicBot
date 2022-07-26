@@ -12,6 +12,12 @@ def playSong(driver, songName):
     driver.find_element(By.XPATH, '//*[@id="contents"]/ytmusic-responsive-list-item-renderer/div[2]/div[1]/yt-formatted-string/a').click()
     time.sleep(2)
 
+    #Selecting audio output device
+    #ideally search in labels for 'CABLE Input (VB-Audio Virtual Cable)' and click on the corresponding radio
+    # driver.switch_to.new_window('tab') 
+    # driver.get("chrome-extension://eajkfkgkmngjbpckhidaichjnjiljbbl/popup.html")
+    # driver.find_element(By.XPATH, '/html/body/div/label[4]/input').click()
+
     # Handle ads, need to skip ad if ad is shown or can also let it play
 
     driver.switch_to.window(originalMeetWindow)
