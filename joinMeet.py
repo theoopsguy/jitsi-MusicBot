@@ -12,7 +12,7 @@ def turnMicCamOff(driver):
     #if echo also change speaker to cable input, can do later.
     driver.find_element(By.XPATH, '//*[@id="audio-settings-button"]').click()
     driver.implicitly_wait(1000)
-    driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div/div/div[3]/div[1]/div/div/div[2]/div/div/div/div[1]/div[2]/div/div/div[1]/ul/li[3]').click()
+    driver.find_element(By.XPATH, '//*[@id="audio-settings-dialog"]/div[1]/ul/li[5]').click()
     print("Mic input set to cable output")
     driver.implicitly_wait(3000)
     driver.find_element(By.XPATH, '//*[@id="audio-settings-button"]').click()

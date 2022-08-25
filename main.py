@@ -11,6 +11,7 @@ opt = Options()
 opt.add_argument("--disable-infobars")
 opt.add_argument("start-maximized")
 opt.add_argument("enable-usermedia-screen-capturing")
+opt.add_argument("enable-usermedia-screen-capturing")
 opt.add_argument("auto-select-desktop-capture-source=YouTube Music")    #Auto select which screen to share, for now YTM
 opt.add_experimental_option('excludeSwitches', ['test-type'])
 opt.add_experimental_option("prefs", {
