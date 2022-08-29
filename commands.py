@@ -19,32 +19,31 @@ def commands(driver):
         .perform()
 
     driver.implicitly_wait(3)
-    driver.find_element(By.XPATH, '//*[@id="usermsg"]').send_keys("Hi! I'm Music bot. Use '/help' to read all my commands" + Keys.ENTER)
+    driver.find_element(By.XPATH, '//*[@id="usermsg"]').send_keys("Hi! I'm Music bot." + Keys.ENTER)
     driver.implicitly_wait(3)
     print("Introduced in chat")
-
-    # for msgs in grp, xpaths are as follows:
-    # h12
-    # //*[@id="chatconversation"]/div[1]/div[1]/div/div/div/div[2] 1
-    # //*[@id="chatconversation"]/div[1]/div[2]/div[1]/div/div/div 2
-    # h11
-    # //*[@id="chatconversation"]/div[2]/div[1]/div/div/div/div[2] 1
-    # //*[@id="chatconversation"]/div[2]/div[2]/div[1]/div/div/div 2
-    # h12
-    # //*[@id="chatconversation"]/div[3]/div/div[1]/div/div/div[2] 3
-    # h13
-    # //*[@id="chatconversation"]/div[4]/div[1]/div/div/div/div[2] 1
-    # //*[@id="chatconversation"]/div[4]/div[2]/div[1]/div/div/div 2
 
     # To read chat, you need to keep looking if a new group has been created then read it as first line,
     #  or if not then keep an eye on the occurance of new msg in same local group.
 
+    # In a remote grp: 1st:
+    #/html/body/div[1]/div[1]/div/div[1]/div[3]/div[1]/div[1]
+    #/html/body/div[1]/div[1]/div/div[1]/div[3]/div[1]/div[1]/div/div[1]/div/div/div[2]     text div
+    #2nd:
+    #/html/body/div[1]/div[1]/div/div[1]/div[3]/div[1]/div[3]
+    #/html/body/div[1]/div[1]/div/div[1]/div[3]/div[1]/div[3]/div[1]/div/div/div/div[2]     2.1
+    #/html/body/div[1]/div[1]/div/div[1]/div[3]/div[1]/div[3]/div[2]/div/div/div/div        2.2
+    #/html/body/div[1]/div[1]/div/div[1]/div[3]/div[1]/div[3]/div[3]/div/div/div/div        2.3
+    #3rd:
+    # /html/body/div[1]/div[1]/div/div[1]/div[3]/div[1]/div[5]
+    # /html/body/div[1]/div[1]/div/div[1]/div[3]/div[1]/div[5]/div/div[1]/div/div/div[2]
+
     #Read chat commands
-    i=2
+    i=1
     run=1
     while(run==1):
         WebDriverWait(driver, 2000000000).until(EC.visibility_of_element_located((By.XPATH,'//*[@id="chatconversation"]/div['+str(i)+']/div/div[1]/div/div/div[2]')))
-        chatText=driver.find_element(By.XPATH, '//*[@id="chatconversation"]/div['+str(i)+']/div/div[1]/div/div/div[2]').text
+        chatText=driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div/div[1]/div[3]/div[1]/div['+str(i)+']/div/div[1]/div/div/div[2]').text
         # For now not reading messages in group by the same person. Can implement later.
 
         #Removing author details
