@@ -35,7 +35,6 @@ turnMicCamOff(driver)
 driver.implicitly_wait(100)
 joinNow(driver)
 driver.implicitly_wait(100)
-
-# Accessing chat
-time.sleep(30)
+time.sleep(1)
+# Accessing chat and following commands
 commands(driver)
