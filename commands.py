@@ -19,7 +19,7 @@ def commands(driver):
         .perform()
 
     driver.implicitly_wait(3)
-    driver.find_element(By.XPATH, '//*[@id="usermsg"]').send_keys("Hi! I'm Music bot." + Keys.ENTER)
+    driver.find_element(By.CLASS_NAME, 'jss73').send_keys("Hi! I'm Music bot." + Keys.ENTER)
     driver.implicitly_wait(3)
     print("Introduced in chat")
 
@@ -43,7 +43,8 @@ def commands(driver):
     run=1
     while(run==1):
         WebDriverWait(driver, 2000000000).until(EC.visibility_of_element_located((By.XPATH,'//*[@id="chatconversation"]/div['+str(i)+']/div/div[1]/div/div/div[2]')))
-        chatText=driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div/div[1]/div[3]/div[1]/div['+str(i)+']/div/div[1]/div/div/div[2]').text
+        chatText=driver.find_element(By.CLASS_NAME, 'usermessage').text
+        print(chatText)
         # For now not reading messages in group by the same person. Can implement later.
 
         #Removing author details

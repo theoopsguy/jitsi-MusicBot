@@ -1,30 +1,28 @@
 import time
 from selenium.webdriver.common.by import By
 
-# Turn off audio and video
+# Turn off video and select virtual device for audio input
 def turnMicCamOff(driver):
     driver=driver
-    driver.find_element(By.XPATH, '//*[@id="new-toolbox"]/div/div/div/div[2]/div/div[1]/div/div/div').click()
+    driver.find_element(By.CLASS_NAME, 'video-preview').click()
     print("Cam off")
     driver.implicitly_wait(3000)
-
-    #Instead of muting audio need to change audio input device to cable input
-    #if echo also change speaker to cable input, can do later.
-    driver.find_element(By.XPATH, '//*[@id="audio-settings-button"]').click()
+    driver.find_element(By.ID, 'audio-settings-button').click()
     driver.implicitly_wait(1000)
-    driver.find_element(By.XPATH, '//*[@id="audio-settings-dialog"]/div[1]/ul/li[5]').click()
-    print("Mic input set to cable output")
+    micDevices=driver.find_elements(By.CLASS_NAME, 'audio-preview-entry')
+    for micDevice in micDevices:
+        if "VB-Audio" in micDevice.text or "BlackHole" in micDevice.text:
+            micDevice.click()
+            break
+    print("Mic input set to virtual device output")
     driver.implicitly_wait(3000)
-    driver.find_element(By.XPATH, '//*[@id="audio-settings-button"]').click()
-
-    time.sleep(1)
-
+    driver.find_element(By.ID, 'audio-settings-button').click()
+    driver.implicitly_wait(3000)
 
 # Joining meet
 def joinNow(driver):
     driver=driver
-    time.sleep(1)
-    driver.find_element(By.XPATH, '//*[@id="videoconference_page"]/div[3]/div[1]/div/div/div[1]/input').send_keys("MusicBot")
-    driver.find_element(By.XPATH, '//*[@id="videoconference_page"]/div[3]/div[1]/div/div/div[1]/div/div').click()
-    # driver.implicitly_wait(10)
+    driver.find_element(By.CLASS_NAME, 'field').send_keys("MusicBot")
+    driver.find_element(By.CLASS_NAME, 'jss19').click()
+    driver.implicitly_wait(1000)
     print("Joining meet")
