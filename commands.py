@@ -5,6 +5,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from playSong import playSong
+from pauseSong import pauseSong
+from resumeSong import resumeSong
+from helpCommand import helpCommand
 
 def commands(driver):
     driver=driver
@@ -52,12 +55,24 @@ def commands(driver):
             print("Play Song")
             songNameStartIdx=actualChatText.find("/play")+6
             songName=actualChatText[songNameStartIdx:]
-            playSong(driver, songName)
+            musicWindow=playSong(driver, songName)
+            i=i+1
+        elif "/pause" in actualChatText:
+            print("Pause Song")
+            pauseSong(driver, musicWindow)
+            i=i+1
+        elif "/resume" in actualChatText:
+            print("Resume song")
+            resumeSong(driver, musicWindow)
+            i=i+1
+        elif "/help" in actualChatText:
+            print("Bot help")
+            helpCommand(driver)
             i=i+1
         elif "/exit" in actualChatText:
             run=0
             print("Exit bot")
-            driver.close()
+            driver.quit()
         else:
             print(actualChatText)
             i=i+1
