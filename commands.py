@@ -14,15 +14,12 @@ def commands(driver):
     # To wait until bot joins the meet.
     WebDriverWait(driver, 10000000).until(EC.visibility_of_element_located((By.ID,'new-toolbox')))
     # Open chat box
-    ActionChains(driver)\
-        .key_down(Keys.SHIFT)\
-        .send_keys("c")\
-        .key_up(Keys.SHIFT)\
-        .perform()
+    chatIcon=driver.find_element(By.CLASS_NAME, 'toolbar-button-with-badge')
+    ActionChains(driver).move_to_element(chatIcon).click().perform()
     driver.implicitly_wait(3)
     # To wait until text message box is visible
-    WebDriverWait(driver, 10000000).until(EC.visibility_of_element_located((By.CLASS_NAME, 'jss73')))
-    driver.find_element(By.CLASS_NAME, 'jss73').send_keys("Hi! I'm Music bot." + Keys.ENTER)
+    WebDriverWait(driver, 10000000).until(EC.visibility_of_element_located((By.CLASS_NAME, 'icon-input')))
+    driver.find_element(By.CLASS_NAME, 'icon-input').send_keys("Hi! I'm Music bot." + Keys.ENTER)
     driver.implicitly_wait(3)
     print("Introduced in chat")
 
