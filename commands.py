@@ -36,6 +36,10 @@ def commands(driver):
             chatText=chatList[msgIndex].text
             msgIndex=msgIndex+1
 
+            # Ignoring messages sent by bot itself
+            if chatText[:2]=="me":
+                continue
+
             #Removing author details
             actualChatText=str(chatText).split("\n",1)[1]
             actualChatText=str(actualChatText).lower()
