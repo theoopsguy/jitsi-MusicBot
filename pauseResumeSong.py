@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-def resumeSong(driver, musicWindow):
+def pauseResumeSong(driver, musicWindow):
     originalMeetWindow=driver.current_window_handle
     driver.switch_to.window(musicWindow)
     driver.implicitly_wait(10)
