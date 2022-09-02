@@ -49,6 +49,9 @@ def commands(driver):
                 print("Play Song")
                 songNameStartIdx=actualChatText.find("/play")+6
                 songName=actualChatText[songNameStartIdx:]
+                if len(songName)==0:
+                    print("Invalid song name")
+                    continue
                 musicWindow=playSong(driver, songName)
             elif "/pause" in actualChatText:
                 print("Pause Song")
