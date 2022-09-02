@@ -16,14 +16,7 @@ def playSong(driver, songName):
     WebDriverWait(driver, 100).until(EC.visibility_of_element_located((By.CLASS_NAME, 'playing-mode')))
 
     driver.execute_script('var sink_id = "";navigator.mediaDevices.enumerateDevices().then(inspect_devices).catch(errorCallback);function inspect_devices(deviceInfos) {console.log("Inspecting Devices: " + deviceInfos.length + " device(s) total (audio/video input/output)");for (var deviceIdx = 0; deviceIdx < deviceInfos.length; deviceIdx++) {var deviceInfo = deviceInfos[deviceIdx];if ((deviceInfo.kind == "audiooutput") && (deviceInfo.label.includes("VB-Audio") || deviceInfo.label.includes("BlackHole"))) {sink_id = deviceInfo.deviceId;update_all_sinks();}}}function update_all_sinks() {var allMedia = document.querySelectorAll("audio,video");for (var mediaElement = 0; mediaElement < allMedia.length; mediaElement++) {allMedia[mediaElement].setSinkId(sink_id);}}function errorCallback(error) {console.log("Error: "+ error);}')
-<<<<<<< HEAD
-    driver.implicitly_wait(3000)
-    time.sleep(1)
-
-    # Handle ads, need to skip ad if ad is shown or can also let it play
-=======
     driver.implicitly_wait(1000)
->>>>>>> 51de30a (cleaned code and improved performance by replacing explicit waits with implicit waits)
 
     driver.switch_to.window(originalMeetWindow)
     driver.implicitly_wait(10)
