@@ -8,6 +8,7 @@ from playSong import playSong
 from pauseSong import pauseSong
 from resumeSong import resumeSong
 from helpCommand import helpCommand
+from exitCommand import exitCommand
 
 def commands(driver):
     driver=driver
@@ -61,4 +62,4 @@ def commands(driver):
             elif "/exit" in actualChatText:
                 run=0
                 print("Exit bot")
-                driver.quit()
+                exitCommand(driver)
