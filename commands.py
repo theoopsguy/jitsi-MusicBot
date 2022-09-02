@@ -21,7 +21,7 @@ def commands(driver):
     driver.implicitly_wait(3)
 
     # To wait until text message box is visible
-    WebDriverWait(driver, 10000000).until(EC.visibility_of_element_located((By.CLASS_NAME, 'icon-input')))
+    WebDriverWait(driver, 100).until(EC.visibility_of_element_located((By.CLASS_NAME, 'icon-input')))
 
     # Introduce bot in chat
     driver.find_element(By.CLASS_NAME, 'icon-input').send_keys("Hi! I'm Music bot." + Keys.ENTER)
