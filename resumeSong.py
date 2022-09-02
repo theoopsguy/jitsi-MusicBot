@@ -6,7 +6,7 @@ def resumeSong(driver, musicWindow):
     originalMeetWindow=driver.current_window_handle
     driver.switch_to.window(musicWindow)
     driver.implicitly_wait(3000)
-    driver.find_element(By.XPATH, '/html/body/ytmusic-app/ytmusic-app-layout/ytmusic-player-bar/div[1]/div/tp-yt-paper-icon-button[3]/tp-yt-iron-icon').click()
+    driver.find_element(By.ID, 'play-pause-button').click()
     driver.implicitly_wait(3000)
     driver.switch_to.window(originalMeetWindow)
     driver.implicitly_wait(3000)

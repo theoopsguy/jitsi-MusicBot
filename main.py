@@ -27,14 +27,14 @@ print("browser start")
 
 # Meeting link goes here
 driver.get('https://meet.jit.si/EmptyControlsMapAccidentally')
-time.sleep(5)
+driver.implicitly_wait(1000)
+time.sleep(1)
 
 # Joining meet
 turnMicCamOff(driver)
-driver.implicitly_wait(10)
+driver.implicitly_wait(100)
 joinNow(driver)
-driver.implicitly_wait(10)
-
-# Accessing chat
-time.sleep(30)
+driver.implicitly_wait(100)
+time.sleep(1)
+# Accessing chat and following commands
 commands(driver)
