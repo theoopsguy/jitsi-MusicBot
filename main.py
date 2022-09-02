@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import time
 
@@ -10,7 +9,6 @@ from commands import commands
 opt = Options()
 opt.add_argument("--disable-infobars")
 opt.add_argument("start-maximized")
-opt.add_argument("enable-usermedia-screen-capturing")
 opt.add_argument("enable-usermedia-screen-capturing")
 opt.add_argument("auto-select-desktop-capture-source=YouTube Music")    #Auto select which screen to share, for now YTM
 opt.add_experimental_option('excludeSwitches', ['test-type'])
@@ -27,7 +25,7 @@ print("browser start")
 
 # Meeting link goes here
 driver.get('https://meet.jit.si/EmptyControlsMapAccidentally')
-driver.implicitly_wait(1000)
+driver.implicitly_wait(100)
 time.sleep(1)
 
 # Joining meet

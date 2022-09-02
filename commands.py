@@ -5,8 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from playSong import playSong
-from pauseSong import pauseSong
-from resumeSong import resumeSong
+from pauseResumeSong import pauseResumeSong
 from helpCommand import helpCommand
 from exitCommand import exitCommand
 
@@ -21,7 +20,7 @@ def commands(driver):
     driver.implicitly_wait(3)
 
     # To wait until text message box is visible
-    WebDriverWait(driver, 10000000).until(EC.visibility_of_element_located((By.CLASS_NAME, 'icon-input')))
+    WebDriverWait(driver, 100).until(EC.visibility_of_element_located((By.CLASS_NAME, 'icon-input')))
 
     # Introduce bot in chat
     driver.find_element(By.CLASS_NAME, 'icon-input').send_keys("Hi! I'm Music bot." + Keys.ENTER)
@@ -55,10 +54,10 @@ def commands(driver):
                 musicWindow=playSong(driver, songName)
             elif "/pause" in actualChatText:
                 print("Pause Song")
-                pauseSong(driver, musicWindow)
+                pauseResumeSong(driver, musicWindow)
             elif "/resume" in actualChatText:
                 print("Resume song")
-                resumeSong(driver, musicWindow)
+                pauseResumeSong(driver, musicWindow)
             elif "/help" in actualChatText:
                 print("Bot help")
                 helpCommand(driver)
