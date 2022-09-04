@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
 import tkinter as tk
+import threading
 
 from joinMeet import turnMicCamOff, joinNow
 from commands import commands
@@ -41,19 +42,20 @@ description.pack()
 #Variables
 meetLinkVar = tk.StringVar()
 chromedriverPathVar = tk.StringVar()
-botState = False
 meetLink=""
 chromedriverPath=""
+global driver
 
 #function
 def bot(event):
-    if botState==False:
-        start()
+    if btnText.get()=="Start Bot":
+        btnText.set("Bot Started")
+        botThread = threading.Thread(target=startBot).start()
 
-def start():
+def startBot():
     meetLink=(meetLinkVar.get())
     chromedriverPath=(chromedriverPathVar.get())
-    botState = True
+    
     # Starting browser
     driver= webdriver.Chrome(executable_path=chromedriverPath,options=opt)
     print("browser start")
