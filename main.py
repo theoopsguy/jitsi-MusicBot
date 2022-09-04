@@ -26,14 +26,9 @@ root.geometry("500x400")
 root.minsize(400, 380)
 root.title("Jitsi Music Bot")
 
-#logo
-logo = tk.PhotoImage(file="jitsi-logo-blue-grey-text.png")
-logoImage = tk.Label(image=logo)
-logoImage.pack(pady=10)
-
 #title
 heading = tk.Label(root, text="Jitsi Music Bot", font="opensans 20 bold", pady=10)
-heading.pack()
+heading.pack(pady=20)
 
 #description
 description = tk.Label(root, text="A simple music bot for Jitsi", font="opensans 10", pady=10)
