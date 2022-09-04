@@ -53,7 +53,6 @@ def bot(event):
 def start():
     meetLink=(meetLinkVar.get())
     chromedriverPath=(chromedriverPathVar.get())
-    btnText.set("Stop Bot")
     botState = True
     # Starting browser
     driver= webdriver.Chrome(executable_path=chromedriverPath,options=opt)
