@@ -45,6 +45,13 @@ The following commands can be used in the chat box to control the music bot:
 
 * Install a Virtual Audio Device. [VB-Audio](https://vb-audio.com/Cable/) and [BlackHole](https://github.com/ExistentialAudio/BlackHole) are the ones currently supported.
 
+* Install [Python 3.7+](https://www.python.org/downloads/) if you don't have it already installed.
+
+* Install Selenium by running the following command in terminal:
+```
+pip install selenium
+```
+
 * Open the project directory in terminal and run the following command in terminal:
 ```
 python jitsiBot.py
